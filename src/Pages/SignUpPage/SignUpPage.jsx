@@ -28,15 +28,21 @@ function SignUp() {
   const { isPending, mutate } = useMutation({
     mutationKey: ["register-user"],
     mutationFn: async () => {
-      const response = await axios.post(`http://localhost:4000/auth/register`, {
+      const payload = {
         firstName,
         lastName,
         userName,
         emailAddress,
         password,
-      });
+      };
+      console.log("Register payload:", payload);
+      const response = await axios.post(
+        `http://localhost:4000/auth/register`,
+        payload
+      );
       return response.data;
     },
+
 
     onSuccess: () => {
       navigate("/login");
@@ -55,19 +61,24 @@ function SignUp() {
   function handleRegister(e) {
     e.preventDefault();
     setFormError(null);
-    // console.log({
-    //   firstName,
-    //   lastName,
-    //   emailAddress,
-    //   userName,
-    //   password,
-    //   confirmedPassword,
-    // });
 
-    if (password !== confirmedPassword) {
-      setFormError("Password did not match");
+    if (
+      !firstName ||
+      !lastName ||
+      !emailAddress ||
+      !userName ||
+      !password ||
+      !confirmedPassword
+    ) {
+      setFormError("All fields are required");
       return;
     }
+
+    if (password !== confirmedPassword) {
+      setFormError("Passwords do not match");
+      return;
+    }
+
     mutate();
   }
 
