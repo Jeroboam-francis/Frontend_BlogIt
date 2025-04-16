@@ -28,12 +28,10 @@ const NavigationBar = () => {
         zIndex: 1000,
       }}
     >
-      {/* Logo and Name */}
       <div>
         <Logo />
       </div>
 
-      {/* Navigation */}
       <div style={{ display: "flex", alignItems: "center" }}>
         {!user ? (
           <ol
