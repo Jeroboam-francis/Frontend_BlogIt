@@ -17,7 +17,7 @@ function LandingPage() {
           flexGrow: 1,
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" display={"flex"}>
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
               <Typography
@@ -80,7 +80,7 @@ function LandingPage() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            {/* <Grid item xs={12} md={6}>
               <Box
                 component="img"
                 src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
@@ -91,12 +91,11 @@ function LandingPage() {
                   boxShadow: 3,
                 }}
               />
-            </Grid>
+            </Grid> */}
           </Grid>
         </Container>
       </Box>
 
-      {/* Additional Sections (optional) */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Typography
           variant="h4"
