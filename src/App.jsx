@@ -32,7 +32,7 @@ function App() {
           />
 
           <Route
-            path="/myblogs"
+            path="/myblogs/:blogId"
             element={
               <Protected>
                 <MyBlogsPage />
