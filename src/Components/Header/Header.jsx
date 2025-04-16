@@ -13,7 +13,6 @@ function Header() {
         padding: "16px",
       }}
     >
-      <Logo />
       <NavigationBar />
     </Box>
   );
