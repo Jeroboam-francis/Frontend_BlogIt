@@ -19,7 +19,7 @@ function LandingPage() {
       >
         <Container maxWidth="lg" display={"flex"}>
           <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Typography
                 variant="h2"
                 component="h1"

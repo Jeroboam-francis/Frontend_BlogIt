@@ -78,12 +78,12 @@ const NavigationBar = () => {
               Welcome, {user.userName || "User"}
             </span>
             <nav style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-              <NavigationLink to="/" label="Home" />
-              <NavigationLink to="/article" label="Articles" />
-              <NavigationLink to="/blogs" label="Blog Listing" />
-              <NavigationLink to="/myblogs" label="My Blogs" />
-              <NavigationLink to="/profile" label="My Profile" />
+              <NavigationLink to="/profile" label="Profile" />
               <NavigationLink to="/write" label="Write" />
+              <NavigationLink to="/my-blogs" label="My Blogs" />
+              <NavigationLink to="/blogs" label="Blog Listing" />
+              <NavigationLink to="/article" label="Articles" />
+
               <button
                 onClick={handleLogout}
                 style={{

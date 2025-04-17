@@ -11,6 +11,8 @@ import WritePage from "./Pages/WritePage/WritePage";
 
 import NavigationBar from "./Components/NavigationBar/NavigationBar";
 import Protected from "./components/Protected/Protected";
+import BlogPreviewPage from "./Pages/BlogPreviewPage/BlogPreviewPage";
+import BlogListingPage from "./Pages/BlogListingPage/BlogListingPage";
 
 function App() {
   return (
@@ -23,6 +25,15 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
 
           <Route
+            path="/blogs"
+            element={
+              <Protected>
+                <BlogListingPage />
+              </Protected>
+            }
+          />
+
+          <Route
             path="/article"
             element={
               <Protected>
@@ -32,13 +43,31 @@ function App() {
           />
 
           <Route
-            path="/myblogs/:blogId"
+            path="/article/:id"
+            element={
+              <Protected>
+                <ArticlesPage />
+              </Protected>
+            }
+          />
+          <Route
+            path="/my-blogs"
             element={
               <Protected>
                 <MyBlogsPage />
               </Protected>
             }
           />
+
+          <Route
+            path="/myblogs/:blogId"
+            element={
+              <Protected>
+                <BlogPreviewPage />
+              </Protected>
+            }
+          />
+
           <Route
             path="/profile"
             element={

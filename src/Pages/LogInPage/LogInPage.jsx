@@ -37,7 +37,7 @@ function Login() {
     },
     onSuccess: (data) => {
       setUserInformation(data);
-      navigate("/", { replace: true });
+      navigate("/profile", { replace: true });
     },
     onError: (error) => {
       if (axios.isAxiosError(error)) {
