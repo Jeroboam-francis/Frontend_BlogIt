@@ -10,7 +10,7 @@ import MyBlogsPage from "./Pages/MyBlogsPage/MyBlogsPage";
 import WritePage from "./Pages/WritePage/WritePage";
 
 import NavigationBar from "./Components/NavigationBar/NavigationBar";
-import Protected from "./components/Protected/Protected";
+import Protected from "./Components/Protected/Protected";
 import BlogPreviewPage from "./Pages/BlogPreviewPage/BlogPreviewPage";
 import BlogListingPage from "./Pages/BlogListingPage/BlogListingPage";
 import ProfileView from "./Pages/Profile/ProfileView";
