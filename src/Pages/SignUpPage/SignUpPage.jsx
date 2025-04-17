@@ -14,6 +14,7 @@ import {
 import Header from "../../Components/Header/Header";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import apiUrl from "../../utilis/apiUrl";
 
 function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -36,13 +37,10 @@ function SignUp() {
         password,
       };
       console.log("Register payload:", payload);
-      const response = await axios.post(
-        `http://localhost:4000/auth/register`,
-        payload
-      );
+      const response = await axios.post(`${apiUrl}/auth/register`, payload);
+
       return response.data;
     },
-
 
     onSuccess: () => {
       navigate("/login");
