@@ -14,6 +14,7 @@ import useUserStore from "../../store/userStore";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import apiUrl from "../../utilis/apiUrl";
 
 import { useState } from "react";
 
@@ -28,7 +29,7 @@ function Login() {
     mutationKey: ["login-user"],
     mutationFn: async () => {
       const response = await axios.post(
-        `http://localhost:4000/auth/login`,
+        `${apiUrl}/auth/login`,
         { identifier, password },
         { withCredentials: true }
       );

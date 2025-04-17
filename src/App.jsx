@@ -6,13 +6,15 @@ import LogInPage from "./Pages/LogInPage/LogInPage";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 import ArticlesPage from "./Pages/ArticlePage/ArticlePage";
 import MyBlogsPage from "./Pages/MyBlogsPage/MyBlogsPage";
-import MyProfilePage from "./Pages/MyProfilePage/MyProfilePage";
+// import MyProfilePage from "./Pages/MyProfilePage/MyProfilePage";
 import WritePage from "./Pages/WritePage/WritePage";
 
 import NavigationBar from "./Components/NavigationBar/NavigationBar";
 import Protected from "./components/Protected/Protected";
 import BlogPreviewPage from "./Pages/BlogPreviewPage/BlogPreviewPage";
 import BlogListingPage from "./Pages/BlogListingPage/BlogListingPage";
+import ProfileView from "./Pages/Profile/ProfileView";
+import ProfileEdit from "./Pages/Profile/ProfileEdit";
 
 function App() {
   return (
@@ -68,19 +70,36 @@ function App() {
             }
           />
 
-          <Route
+          {/* <Route
             path="/profile"
             element={
               <Protected>
                 <MyProfilePage />
               </Protected>
             }
-          />
+          /> */}
           <Route
             path="/write"
             element={
               <Protected>
                 <WritePage />
+              </Protected>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Protected>
+                <ProfileView />
+              </Protected>
+            }
+          />
+
+          <Route
+            path="/profile/edit"
+            element={
+              <Protected>
+                <ProfileEdit />
               </Protected>
             }
           />
