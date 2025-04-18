@@ -6,7 +6,6 @@ import {
   Typography,
   Card,
   CardContent,
-  CardMedia,
   CircularProgress,
 } from "@mui/material";
 import apiUrl from "../../utilis/apiUrl";
@@ -49,12 +48,6 @@ function BlogListingPage() {
         {data.map((blog) => (
           <Grid item xs={12} md={4} key={blog.id}>
             <Card>
-              <CardMedia
-                component="img"
-                height="140"
-                // image={blog.featuredImage || "/placeholder.jpg"}
-                alt={blog.title}
-              />
               <CardContent>
                 <Typography variant="h5" component="div">
                   {blog.title}

@@ -8,7 +8,6 @@ function LandingPage() {
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Header />
 
-      {/* Hero Section */}
       <Box
         sx={{
           py: 10,
@@ -79,19 +78,6 @@ function LandingPage() {
                 </Button>
               </Box>
             </Grid>
-
-            {/* <Grid item xs={12} md={6}>
-              <Box
-                component="img"
-                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Writing inspiration"
-                sx={{
-                  width: "100%",
-                  borderRadius: 4,
-                  boxShadow: 3,
-                }}
-              />
-            </Grid> */}
           </Grid>
         </Container>
       </Box>

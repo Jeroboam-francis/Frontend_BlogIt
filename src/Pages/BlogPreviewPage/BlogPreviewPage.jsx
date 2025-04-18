@@ -34,7 +34,6 @@ function BlogPreviewPage() {
     severity: "success",
   });
 
-  // Fetch blog query
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ["fetch-blog", blogId],
     queryFn: async () => {
@@ -58,7 +57,6 @@ function BlogPreviewPage() {
     },
   });
 
-  // Update blog mutation
   const updateBlogMutation = useMutation({
     mutationFn: async (updatedBlog) => {
       const response = await axios.put(
@@ -69,7 +67,6 @@ function BlogPreviewPage() {
       return response.data;
     },
     onSuccess: () => {
-      // Invalidate and refetch the blog data
       queryClient.invalidateQueries(["fetch-blog", blogId]);
       setIsEditing(false);
       setNotification({
@@ -254,7 +251,6 @@ function BlogPreviewPage() {
       <Box mt={8} mb={4}>
         <Paper elevation={2} sx={{ p: 4 }}>
           {isEditing ? (
-            // Edit mode
             <Box component="form">
               <TextField
                 fullWidth
@@ -315,7 +311,6 @@ function BlogPreviewPage() {
               </Box>
             </Box>
           ) : (
-            // View mode
             <>
               <Typography variant="h3" gutterBottom>
                 {data?.title}

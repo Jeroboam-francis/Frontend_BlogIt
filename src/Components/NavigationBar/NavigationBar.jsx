@@ -82,7 +82,6 @@ const NavigationBar = () => {
               <NavigationLink to="/write" label="Write" />
               <NavigationLink to="/my-blogs" label="My Blogs" />
               <NavigationLink to="/blogs" label="Blog Listing" />
-              <NavigationLink to="/article" label="Articles" />
 
               <button
                 onClick={handleLogout}

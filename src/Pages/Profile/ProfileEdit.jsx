@@ -33,13 +33,8 @@ function ProfileEdit() {
   const [formData, setFormData] = useState({
     firstName: user?.firstName || "",
     lastName: user?.lastName || "",
-    email: user?.emailAddress || "",
-    username: user?.userName || "",
-    phone: user?.phone || "",
-    occupation: user?.occupation || "",
-    bio: user?.bio || "",
-    statusText: user?.statusText || "",
-    secondaryEmail: user?.secondaryEmail || "",
+    emailAddress: user?.emailAddress || "",
+    userName: user?.userName || "",
     currentPassword: "",
     newPassword: "",
     confirmNewPassword: "",
@@ -89,7 +84,6 @@ function ProfileEdit() {
     e.preventDefault();
     setFormError(null);
 
-    // Password validation
     if (
       formData.newPassword &&
       formData.newPassword !== formData.confirmNewPassword
@@ -110,7 +104,13 @@ function ProfileEdit() {
   }
 
   function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const fieldNameMapping = {
+      email: "emailAddress",
+      username: "userName",
+    };
+
+    const fieldName = fieldNameMapping[e.target.name] || e.target.name;
+    setFormData({ ...formData, [fieldName]: e.target.value });
   }
 
   function handlePhotoChange(e) {
@@ -142,7 +142,9 @@ function ProfileEdit() {
         <form onSubmit={handleSubmit}>
           <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
             <Avatar
-              src={previewPhoto || user?.profilePhoto || "/default-avatar.png"}
+              src={
+                previewPhoto || user?.profilePicture || "/default-avatar.png"
+              }
               sx={{ width: 80, height: 80, mr: 2 }}
             />
             <Button variant="outlined" component="label">
@@ -184,7 +186,7 @@ function ProfileEdit() {
             type="email"
             fullWidth
             margin="normal"
-            value={formData.email}
+            value={formData.emailAddress}
             onChange={handleChange}
             required
           />
@@ -193,57 +195,8 @@ function ProfileEdit() {
             name="username"
             fullWidth
             margin="normal"
-            value={formData.username}
-            onChange={handleChange}
+            value={formData.userName}
             required
-          />
-          <TextField
-            label="Secondary Email"
-            name="secondaryEmail"
-            type="email"
-            fullWidth
-            margin="normal"
-            value={formData.secondaryEmail}
-            onChange={handleChange}
-          />
-
-          <Typography variant="h6" sx={{ mt: 3, mb: 2 }}>
-            Profile Information
-          </Typography>
-
-          <TextField
-            label="Phone Number"
-            name="phone"
-            fullWidth
-            margin="normal"
-            value={formData.phone}
-            onChange={handleChange}
-          />
-          <TextField
-            label="Occupation"
-            name="occupation"
-            fullWidth
-            margin="normal"
-            value={formData.occupation}
-            onChange={handleChange}
-          />
-          <TextField
-            label="Bio"
-            name="bio"
-            fullWidth
-            margin="normal"
-            multiline
-            rows={3}
-            value={formData.bio}
-            onChange={handleChange}
-          />
-          <TextField
-            label="Status Text"
-            name="statusText"
-            fullWidth
-            margin="normal"
-            value={formData.statusText}
-            onChange={handleChange}
           />
 
           <Typography variant="h6" sx={{ mt: 3, mb: 2 }}>
