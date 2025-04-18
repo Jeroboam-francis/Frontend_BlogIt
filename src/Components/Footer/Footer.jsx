@@ -25,7 +25,7 @@ function Footer() {
       component="footer"
       sx={{
         backgroundColor:
-          theme.palette.mode === "dark" ? theme.palette.grey[900] : "#3D90D7",
+          theme.palette.mode === "dark" ? theme.palette.grey[900] : "#2C2C2C",
         py: 4,
         px: 2,
         mt: "auto",
