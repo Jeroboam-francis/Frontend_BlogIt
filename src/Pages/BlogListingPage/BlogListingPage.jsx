@@ -7,7 +7,9 @@ import {
   Card,
   CardContent,
   CircularProgress,
+  Container,
 } from "@mui/material";
+import ReactMarkdown from "react-markdown";
 import apiUrl from "../../utilis/apiUrl";
 
 function BlogListingPage() {
@@ -27,47 +29,64 @@ function BlogListingPage() {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        minHeight="50vh"
+        minHeight="80vh"
       >
         <CircularProgress />
-        Its loading please wait....
+        <Typography ml={2}> Loading, please wait...</Typography>
       </Box>
     );
   }
 
   if (isError) {
-    return <Typography>Error: {error.message}</Typography>;
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="80vh"
+      >
+        <Typography color="error">Error: {error.message}</Typography>
+      </Box>
+    );
   }
 
   return (
-    <Box sx={{ py: 4 }}>
-      <Typography variant="h4" textAlign="center" gutterBottom>
+    <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Typography variant="h3" component="h1" gutterBottom align="center">
         Explore Blogs
       </Typography>
+
       <Grid container spacing={4}>
         {data.map((blog) => (
-          <Grid item xs={12} md={4} key={blog.id}>
-            <Card>
+          <Grid item xs={12} key={blog.id || blog._id}>
+            <Card elevation={3}>
               <CardContent>
-                <Typography variant="h5" component="div">
+                <Typography variant="h5" component="h2" gutterBottom>
                   {blog.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" gutterBottom>
-                  {blog.description}
-                </Typography>
-                <Typography variant="body1" color="text.primary" paragraph>
-                  {blog.content}
-                </Typography>
-                <Typography variant="caption" display="block" gutterBottom>
+
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  gutterBottom
+                >
                   By {blog.author.userName} on{" "}
                   {new Date(blog.updatedAt).toLocaleDateString()}
                 </Typography>
+
+                <Typography variant="body2" color="text.secondary" paragraph>
+                  {blog.description}
+                </Typography>
+
+                <Box sx={{ mt: 2, px: 1 }}>
+                  <ReactMarkdown>{blog.content}</ReactMarkdown>
+                </Box>
               </CardContent>
             </Card>
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </Container>
   );
 }
 
