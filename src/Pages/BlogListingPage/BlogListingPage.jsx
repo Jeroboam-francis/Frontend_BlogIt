@@ -61,7 +61,25 @@ function BlogListingPage() {
           <Grid item xs={12} key={blog.id || blog._id}>
             <Card elevation={3}>
               <CardContent>
-                <Typography variant="h5" component="h2" gutterBottom>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  color="primary"
+                  gutterBottom
+                  sx={{
+                    fontWeight: "bold",
+                    textTransform: "uppercase",
+                    letterSpacing: 1,
+                    mt: 2,
+                    mb: 3,
+                    textAlign: "center",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "scale(1.02)",
+                      color: "text.secondary",
+                    },
+                  }}
+                >
                   {blog.title}
                 </Typography>
 
@@ -69,12 +87,24 @@ function BlogListingPage() {
                   variant="subtitle2"
                   color="text.secondary"
                   gutterBottom
+                  sx={{
+                    fontStyle: "italic",
+                    transition: "all 0.2s ease",
+                    "&:hover": {
+                      color: "primary.main",
+                    },
+                  }}
                 >
-                  By {blog.author.userName} on{" "}
+                  By {blog.author.userName} •{" "}
                   {new Date(blog.updatedAt).toLocaleDateString()}
                 </Typography>
 
-                <Typography variant="body2" color="text.secondary" paragraph>
+                <Typography
+                  variant="body2"
+                  color="green"
+                  paragraph
+                  sx={{ lineHeight: 1.6 }}
+                >
                   {blog.description}
                 </Typography>
 

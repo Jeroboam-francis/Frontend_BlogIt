@@ -67,15 +67,16 @@ function Write() {
         fontWeight="bold"
         gutterBottom
       >
-        New Blog
+        <variant style={{ color: "#8B5CF6" }}>Write Your Blog</variant>
       </Typography>
 
       <Grid container component="div" justifyContent="center">
         <Grid item xs={11} md={8}>
           <Paper
             component="form"
-            sx={{ padding: 2 }}
+            sx={{ padding: 3, borderRadius: 2, border: "1px solid #ccc" }}
             onSubmit={handleCreateBlog}
+            elevation={2}
           >
             {formError && (
               <Alert severity="error" sx={{ mb: 3 }}>
@@ -86,31 +87,46 @@ function Write() {
               type="text"
               placeholder="Blog Title"
               fullWidth
-              sx={{ mb: 2 }}
+              sx={{ mb: 3 }}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              variant="outlined"
+              label="Title"
+              InputProps={{
+                sx: { borderRadius: 2 },
+              }}
             />
 
             <TextField
               type="text"
               placeholder="Blog Description"
               fullWidth
-              sx={{ mb: 2 }}
+              sx={{ mb: 3 }}
               multiline
               minRows={3}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              variant="outlined"
+              label="Description"
+              InputProps={{
+                sx: { borderRadius: 2 },
+              }}
             />
 
             <TextField
               type="text"
               placeholder="Write your Blog here (markdown is supported)"
               fullWidth
-              sx={{ mb: 2 }}
+              sx={{ mb: 3 }}
               multiline
               minRows={10}
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              variant="outlined"
+              label="Content"
+              InputProps={{
+                sx: { borderRadius: 2 },
+              }}
             />
 
             <Button
@@ -119,6 +135,12 @@ function Write() {
               size="large"
               fullWidth
               disabled={isPending}
+              sx={{
+                py: 1.5,
+                borderRadius: 2,
+                textTransform: "none",
+                fontSize: "1rem",
+              }}
             >
               {isPending ? "Submitting..." : "Submit"}
             </Button>

@@ -114,7 +114,7 @@ function Login() {
           <Divider sx={{ my: 3 }}>or</Divider>
           <Typography variant="body1">
             Dont have an account?
-            <Button component={Link} to="/register">
+            <Button component={Link} to="/signup">
               Sign Up.
             </Button>
           </Typography>

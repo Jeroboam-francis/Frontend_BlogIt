@@ -19,12 +19,13 @@ const NavigationBar = () => {
         top: 0,
         left: 0,
         right: 0,
-        backgroundColor: "#f5f5f5",
-        padding: "16px",
+        backgroundColor: "#f8f9fa",
+        padding: "16px 24px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         borderBottom: "1px solid #e0e0e0",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
         zIndex: 1000,
       }}
     >
@@ -32,7 +33,7 @@ const NavigationBar = () => {
         <Logo />
       </div>
 
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
         {!user ? (
           <ol
             style={{
@@ -40,12 +41,24 @@ const NavigationBar = () => {
               padding: 0,
               margin: 0,
               display: "flex",
+              gap: "16px",
+              alignItems: "center",
             }}
           >
-            <li style={{ marginRight: "16px" }}>
-              <NavigationLink to="/" label="Home" />
+            <li>
+              <NavigationLink
+                to="/"
+                label="Home"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  ":hover": {
+                    backgroundColor: "#e9ecef",
+                  },
+                }}
+              />
             </li>
-            <li style={{ marginRight: "16px" }}>
+            <li>
               <NavigationLink
                 to="/login"
                 label="Log In"
@@ -55,6 +68,9 @@ const NavigationBar = () => {
                   padding: "8px 16px",
                   borderRadius: "4px",
                   textDecoration: "none",
+                  ":hover": {
+                    backgroundColor: "#3e8e41",
+                  },
                 }}
               />
             </li>
@@ -63,25 +79,81 @@ const NavigationBar = () => {
                 to="/signup"
                 label="Sign Up"
                 style={{
-                  backgroundColor: "#f44336",
+                  backgroundColor: "#2196f3",
                   color: "white",
                   padding: "8px 16px",
                   borderRadius: "4px",
                   textDecoration: "none",
+                  ":hover": {
+                    backgroundColor: "#0b7dda",
+                  },
                 }}
               />
             </li>
           </ol>
         ) : (
           <>
-            <span style={{ marginRight: "16px" }}>
+            <span
+              style={{
+                marginRight: "8px",
+                fontWeight: 500,
+                color: "#333",
+                fontSize: "16px",
+              }}
+            >
               Welcome, {user.userName || "User"}
             </span>
-            <nav style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-              <NavigationLink to="/profile" label="Profile" />
-              <NavigationLink to="/write" label="Write" />
-              <NavigationLink to="/my-blogs" label="My Blogs" />
-              <NavigationLink to="/blogs" label="Blog Listing" />
+            <nav
+              style={{
+                display: "flex",
+                gap: "16px",
+                alignItems: "center",
+              }}
+            >
+              <NavigationLink
+                to="/profile"
+                label="Profile"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  ":hover": {
+                    backgroundColor: "#e9ecef",
+                  },
+                }}
+              />
+              <NavigationLink
+                to="/write"
+                label="Write"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  ":hover": {
+                    backgroundColor: "#e9ecef",
+                  },
+                }}
+              />
+              <NavigationLink
+                to="/my-blogs"
+                label="My Blogs"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  ":hover": {
+                    backgroundColor: "#e9ecef",
+                  },
+                }}
+              />
+              <NavigationLink
+                to="/blogs"
+                label="Blog Listing"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  ":hover": {
+                    backgroundColor: "#e9ecef",
+                  },
+                }}
+              />
 
               <button
                 onClick={handleLogout}
@@ -92,6 +164,11 @@ const NavigationBar = () => {
                   borderRadius: "4px",
                   border: "none",
                   cursor: "pointer",
+                  fontWeight: 500,
+                  transition: "background-color 0.2s ease",
+                  ":hover": {
+                    backgroundColor: "#d32f2f",
+                  },
                 }}
               >
                 Logout
@@ -110,8 +187,10 @@ function NavigationLink({ to, label, style }) {
       to={to}
       style={({ isActive }) => ({
         textDecoration: "none",
-        color: isActive ? "#1976d2" : "inherit",
-        fontWeight: isActive ? "bold" : "normal",
+        color: isActive ? "#1976d2" : "#333",
+        fontWeight: isActive ? "600" : "500",
+        fontSize: "16px",
+        transition: "all 0.2s ease",
         ...style,
       })}
     >

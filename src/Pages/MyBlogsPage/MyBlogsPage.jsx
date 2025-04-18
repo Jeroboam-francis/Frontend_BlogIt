@@ -105,7 +105,9 @@ function MyBlogsPage() {
           alignItems="center"
           mb={4}
         >
-          <Typography variant="h4">My Blogs</Typography>
+          <Typography variant="h4" color="primary">
+            My Blogs
+          </Typography>
           <Button
             variant="contained"
             color="primary"

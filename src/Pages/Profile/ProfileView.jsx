@@ -37,17 +37,6 @@ function ProfileView() {
 
         <Box sx={{ mb: 3 }}>
           <Typography variant="h6" gutterBottom>
-            Personal Information
-          </Typography>
-          <Typography>Email: {user?.emailAddress}</Typography>
-          {user?.secondaryEmail && (
-            <Typography>Secondary Email: {user.secondaryEmail}</Typography>
-          )}
-          {user?.phone && <Typography>Phone: {user.phone}</Typography>}
-        </Box>
-
-        <Box sx={{ mb: 3 }}>
-          <Typography variant="h6" gutterBottom>
             Profile Information
           </Typography>
           {user?.occupation && (
